@@ -435,6 +435,18 @@
      * Note: all requests to backend are disabled in this demo, you should use your own backend
      */
 
+    function shareOnTelegram() {
+    var urlToShare = "https://t.me/nexum_labs_bot/big_money"; // Thay bằng URL thực tế
+    var captionText = "Check this out!";    // Thay bằng caption thực tế
+    var phoneNumber = "+84123456789";       // Thay bằng số điện thoại thực tế
+    
+    var telegramLink = document.getElementById('telegramLink');
+    telegramLink.href = `https://t.me/share/url?url=${encodeURIComponent(urlToShare)}&text=${encodeURIComponent(captionText)}&to=${encodeURIComponent(phoneNumber)}`;
+    
+    // Tự động kích hoạt liên kết
+    telegramLink.click();
+  }
+
     const DemoApp = {
         initData      : Telegram.WebApp.initData || '',
         initDataUnsafe: Telegram.WebApp.initDataUnsafe || {},
@@ -450,7 +462,8 @@
         },
         expand() {
             // Telegram.WebApp.expand();
-            Application.OpenURL('https://t.me/share/url?url=https://t.me/nexum_labs_bot/big_money&text=hello&to=0938011186');
+            // Application.OpenURL('https://t.me/share/url?url=https://t.me/nexum_labs_bot/big_money&text=hello&to=0938011186');
+            shareOnTelegram();
         },
         close() {
             Telegram.WebApp.close();
